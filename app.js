@@ -36,31 +36,30 @@ const asciiHeart = [
 
 
 
-const printByChart = (ms) => {
-    let delay = 0;
-    asciiHeart.forEach((line) => {
-        line.split('').forEach((char) => {
-            setTimeout(() => {
-                process.stdout.write(char);
-            }, delay);
-            delay += ms;
-        });
-        setTimeout(() => {
-            process.stdout.write('\n');
-        }, delay);
-        delay += ms;
-    });
+const printByChart = (ms) => {                          
+    let delay = 0;                                                        //Se podria implementar un ciclo con for
+    asciiHeart.forEach((line) => {                                        // for (let i = 0; i < asciiHeart.length; i++) {
+        line.split('').forEach((char) => {                                //     const chars = asciiHeart[i].split("");                           
+            setTimeout(() => {                                            //     chars.forEach((char, index) => {
+                process.stdout.write(char);                               //         setTimeout(() => {
+            }, delay);                                                    //             process.stdout.write(char);
+            delay += ms;                                                  //             if (asciiHeart[i].length - 1 === index) {
+        });                                                               //                 console.log("")}
+        setTimeout(() => {                                                //     }, delay);
+            process.stdout.write('\n');                                   //     delay += ms;
+        }, delay);                                                        // });
+        delay += ms;                                                      // el codigo funciona pero creo que puede ser un poco confuso cuando estan 
+    });                                                                   //los 2 setTimeout y console.log nos ayuda con el salto de linea que necesitamos      
 };
-printByChart(100)
-    
+//printByChart(100)
+ 
 
 
-
-const printByLine = (ms) => {
-    asciiHeart.forEach((line, index) => {
-        setTimeout(() => {
-            console.log(line)
+const printByLine = (ms) => {                                              //genial, codigo simple y eficiente
+        asciiHeart.forEach((line, index) => {                              //Codigo cumple con los estandares de cammelCase
+        setTimeout(() => {                                                 //Quizas en los parametros cambiar ms por algo mas explicito 
+            console.log(line)                                              // como ms por timeInMs o time para que haga referencia mas clara a que son milisecs
         }, ms * index)
     })
 }
-printByLine(500)
+//printByLine(300)
