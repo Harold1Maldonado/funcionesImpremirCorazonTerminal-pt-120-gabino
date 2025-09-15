@@ -37,29 +37,29 @@ const asciiHeart = [
 
 
 const printByChart = (ms) => {                          
-    let delay = 0;                                                        //Se podria implementar un ciclo con for
-    asciiHeart.forEach((line) => {                                        // for (let i = 0; i < asciiHeart.length; i++) {
-        line.split('').forEach((char) => {                                //     const chars = asciiHeart[i].split("");                           
-            setTimeout(() => {                                            //     chars.forEach((char, index) => {
-                process.stdout.write(char);                               //         setTimeout(() => {
-            }, delay);                                                    //             process.stdout.write(char);
-            delay += ms;                                                  //             if (asciiHeart[i].length - 1 === index) {
-        });                                                               //                 console.log("")}
-        setTimeout(() => {                                                //     }, delay);
-            process.stdout.write('\n');                                   //     delay += ms;
-        }, delay);                                                        // });
-        delay += ms;                                                      // el codigo funciona pero creo que puede ser un poco confuso cuando estan 
-    });                                                                   //los 2 setTimeout y console.log nos ayuda con el salto de linea que necesitamos      
+    let delay = 0;                                        //Se podria implementar un ciclo con for
+    asciiHeart.forEach((line) => {                        // for (let i = 0; i < asciiHeart.length; i++) {
+        line.split('').forEach((char) => {                //     const chars = asciiHeart[i].split("");   "hacemos split para iterar en cada caracter"                        
+            setTimeout(() => {                            //     chars.forEach((char, index) => {      "hacemos el recorrido"
+                process.stdout.write(char);               //         setTimeout(() => {
+            }, delay);                                    //             process.stdout.write(char);
+            delay += ms;                                  //             if (asciiHeart[i].length - 1 === index) { "hacemos salto de linea en cada elemento de la variable ya que esta es la que contiene la informacion del salto de linea"
+        });                                               //                 console.log("")}
+        setTimeout(() => {                                //     }, delay);
+            process.stdout.write('\n');                   //     delay += ms;
+        }, delay);                                        // });
+        delay += ms;                                      // el codigo funciona pero creo que puede ser un poco confuso cuando estan 
+    });                                                   //los 2 setTimeout y console.log nos ayuda con el salto de linea que necesitamos      
 };
 //printByChart(100)
  
 
 
-const printByLine = (ms) => {                                              //genial, codigo simple y eficiente
-        asciiHeart.forEach((line, index) => {                              //Codigo cumple con los estandares de cammelCase
-        setTimeout(() => {                                                 //Quizas en los parametros cambiar ms por algo mas explicito 
-            console.log(line)                                              // como ms por timeInMs o time para que haga referencia mas clara a que son milisecs
-        }, ms * index)
-    })
+const printByLine = (ms) => {                              //genial, codigo simple y eficiente
+        asciiHeart.forEach((line, index) => {              //Codigo cumple con los estandares de cammelCase
+        setTimeout(() => {                                 //Quizas en los parametros cambiar ms por algo mas explicito 
+            console.log(line)                              //como ms por timeInMs o time para que haga referencia mas clara a que son milisecs
+        }, ms * index)                                     //y como ultimo sugerencia de dejar comentarios de referencia para que cualquier programador entienda todo desde un inicio
+    })                                                     //cualquier programador entienda todo desde un inicio 
 }
 //printByLine(300)
